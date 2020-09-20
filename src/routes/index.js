@@ -18,6 +18,10 @@ indexRouter.get("/init", async (req, res) => {
   res.status(200).json({ success: true });
 });
 
+indexRouter.get("/*", async (req, res) => {
+  res.status(200).json({ working: "yes" });
+});
+
 indexRouter.get;
 
 export default indexRouter;
