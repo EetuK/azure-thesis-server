@@ -44,20 +44,19 @@ stages:
     displayName: Deploy
     dependsOn: build
     jobs:
-      - deployment: deployClient
-        displayName: Deploy client
+      - deployment: deployServer
+        displayName: Deploy server
         environment: server-dev
         strategy:
           runOnce:
             deploy:
               steps:
-                    - task: AzureRmWebAppDeployment@4
-                      inputs:
-                        ConnectionType: 'AzureRM'
-                        azureSubscription: 'Azure thesis resource manager'
-                        appType: 'webAppLinux'
-                        WebAppName: 'dev-azure-thesis-server'
-                        packageForLinux: '$(Pipeline.Workspace)/server-$(Build.BuildId)/*.zip'
-                        RuntimeStack: 'NODE|12-lts'
-                        StartupCommand: 'node ./bin/www'
-
+                - task: AzureRmWebAppDeployment@4
+                  inputs:
+                    ConnectionType: "AzureRM"
+                    azureSubscription: "Azure thesis resource manager"
+                    appType: "webAppLinux"
+                    WebAppName: "dev-azure-thesis-server"
+                    packageForLinux: "$(Pipeline.Workspace)/server-$(Build.BuildId)/*.zip"
+                    RuntimeStack: "NODE|12-lts"
+                    StartupCommand: "node ./bin/www"
