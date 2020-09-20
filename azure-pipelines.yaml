@@ -46,7 +46,7 @@ stages:
     jobs:
       - deployment: deployClient
         displayName: Deploy client
-        environment: dev
+        environment: server-dev
         strategy:
           runOnce:
             deploy:
