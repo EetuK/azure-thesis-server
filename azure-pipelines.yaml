@@ -28,7 +28,7 @@ stages:
 
           - task: ArchiveFiles@2
             inputs:
-              includeRootFolder: false
+              includeRootFolder: true
               archiveType: "zip"
               archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
               replaceExistingArchive: true
