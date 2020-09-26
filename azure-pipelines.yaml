@@ -28,7 +28,8 @@ stages:
 
           - task: ArchiveFiles@2
             inputs:
-              includeRootFolder: true
+              rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+              includeRootFolder: false
               archiveType: "zip"
               archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
               replaceExistingArchive: true
@@ -58,4 +59,4 @@ stages:
                     WebAppName: "dev-azure-thesis-server"
                     packageForLinux: "$(Pipeline.Workspace)/server-$(Build.BuildId)/*.zip"
                     RuntimeStack: "NODE|12-lts"
-                    StartupCommand: "node ./build/App.js"
+                    StartupCommand: "npm start"
