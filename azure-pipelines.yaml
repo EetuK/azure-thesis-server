@@ -28,7 +28,7 @@ stages:
 
           - task: ArchiveFiles@2
             inputs:
-              rootFolderOrFile: "build"
+              rootFolderOrFile: "/"
               includeRootFolder: false
               archiveType: "zip"
               archiveFile: "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
@@ -59,4 +59,4 @@ stages:
                     WebAppName: "dev-azure-thesis-server"
                     packageForLinux: "$(Pipeline.Workspace)/server-$(Build.BuildId)/*.zip"
                     RuntimeStack: "NODE|12-lts"
-                    StartupCommand: "node ./bin/www"
+                    StartupCommand: "node ./build/App.js"

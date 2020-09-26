@@ -1,8 +1,6 @@
 import { Pool } from "pg";
-import dotenv from "dotenv";
 import debug from "debug";
 import { dbConnectionString } from "./settings";
-dotenv.config();
 
 export const pool = new Pool({
   connectionString: dbConnectionString,
@@ -21,7 +19,7 @@ export const initDb = async () => {
   debug("...ready");
 };
 
-export const insertRecord = (text) => {
+export const insertRecord = (text: string) => {
   return pool.query(
     `
     INSERT INTO update_date(description) VALUES ($1) RETURNING *; 
