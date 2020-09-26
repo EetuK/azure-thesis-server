@@ -60,3 +60,4 @@ stages:
                     packageForLinux: "$(Pipeline.Workspace)/server-$(Build.BuildId)/*.zip"
                     RuntimeStack: "NODE|12-lts"
                     StartupCommand: "npm start"
+                    AppSettings: -PORT "8080"
