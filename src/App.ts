@@ -7,19 +7,20 @@ const app = express();
 
 app.use(cors());
 
+const init = async () => {
+  await initDb();
+};
+
+init();
+
 app.get("/", async (req, res) => {
   const result = await getMostRecent();
-  res.status(200).json({ ...result.rows[0] });
+  res.status(200).json([...result.recordset]);
 });
 
 app.post("/", async (req, res) => {
   const result = await insertRecord("test");
-  res.status(200).json({ ...result.rows[0] });
-});
-
-app.get("/init", async (req, res) => {
-  const result = await initDb();
-  res.status(200).json({ success: true });
+  res.status(200).json([...result.recordset]);
 });
 
 app.get("/*", async (req, res) => {

@@ -47,10 +47,41 @@ stages:
       - deployment: deployServer
         displayName: Deploy server
         environment: server-dev
+        variables:
+          - group: server-dev
         strategy:
           runOnce:
             deploy:
               steps:
+                - task: AzureAppServiceSettings@1
+                  displayName: Azure App Service Settings
+                  inputs:
+                    azureSubscription: "Azure thesis resource manager"
+                    appName: "dev-azure-thesis-server"
+                    resourceGroupName: "dev-azure-thesis"
+                    appSettings: |
+                      [
+                        {
+                          "name": "DB_USER",
+                          "value": "$(DB-USER)",
+                          "slotSetting": false
+                        },
+                        {
+                          "name": "DB_PASSWORD",
+                          "value": "$(DB-PASSWORD)", 
+                          "slotSetting": false
+                        },
+                        {
+                          "name": "DB_SERVER",
+                          "value": "$(DB-SERVER)", 
+                          "slotSetting": false
+                        },
+                        {
+                          "name": "DB-NAME",
+                          "value": "$(DB-NAME)", 
+                          "slotSetting": false
+                        }
+                      ]
                 - task: AzureRmWebAppDeployment@4
                   inputs:
                     ConnectionType: "AzureRM"
