@@ -77,7 +77,7 @@ stages:
                           "slotSetting": false
                         },
                         {
-                          "name": "DB-NAME",
+                          "name": "DB_NAME",
                           "value": "$(DB-NAME)", 
                           "slotSetting": false
                         }
