@@ -15,12 +15,12 @@ init();
 
 app.get("/", async (req, res) => {
   const result = await getMostRecent();
-  res.status(200).json([...result.recordset]);
+  res.status(200).json(...result.recordset);
 });
 
 app.post("/", async (req, res) => {
   const result = await insertRecord("test");
-  res.status(200).json([...result.recordset]);
+  res.status(200).json(...result.recordset);
 });
 
 app.get("/*", async (req, res) => {
