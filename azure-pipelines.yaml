@@ -19,13 +19,24 @@ stages:
         steps:
           - task: Npm@1
             inputs:
-              command: "install"
+              command: "custom"
+              customCommand: "ci"
           - task: Npm@1
-            displayName: "client - npm run build"
+            displayName: "npm run test"
+            inputs:
+              command: "custom"
+              customCommand: "run test"
+          - task: Npm@1
+            displayName: "npm run build"
             inputs:
               command: "custom"
               customCommand: "run build"
-          - script: ls
+          - task: Npm@1
+            displayName: "npm prune production"
+            inputs:
+              command: "custom"
+              customCommand: "prune --production"
+
           - task: ArchiveFiles@2
             inputs:
               rootFolderOrFile: "$(System.DefaultWorkingDirectory)"

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/App.ts",
     "start": "node ./build/App.js",
-    "build": "NODE_ENV=production tsc"
+    "build": "NODE_ENV=production tsc",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -25,9 +26,11 @@
     "@types/mssql": "^6.0.4",
     "@types/pg": "^7.14.5",
     "install": "^0.13.0",
+    "jest": "^26.4.2",
     "nodemon": "^2.0.4",
     "npm": "^6.14.8",
     "ts-node": "^9.0.0",
+    "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   }
 }
