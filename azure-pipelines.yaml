@@ -11,9 +11,6 @@ pr:
     include:
       - "*"
 
-pool:
-  vmImage: "ubuntu-latest"
-
 stages:
   - stage: build
     displayName: Build
@@ -96,11 +93,6 @@ stages:
                         {
                           "name": "DB_NAME",
                           "value": "$(DB-NAME)", 
-                          "slotSetting": false
-                        },
-                        {
-                          "name": "PORT",
-                          "value": "8080",
                           "slotSetting": false
                         }
                       ]
