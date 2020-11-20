@@ -1,9 +1,6 @@
 trigger:
   - develop
 
-pool:
-  vmImage: "ubuntu-latest"
-
 stages:
   - stage: build
     displayName: Build
