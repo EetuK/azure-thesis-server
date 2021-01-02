@@ -94,6 +94,11 @@ stages:
                           "name": "DB_NAME",
                           "value": "$(DB-NAME)", 
                           "slotSetting": false
+                        },
+                        {
+                          "name": "PORT",
+                          "value": "8080",
+                          "slotSettings": false
                         }
                       ]
                 - task: AzureRmWebAppDeployment@4
@@ -105,4 +110,3 @@ stages:
                     packageForLinux: "$(Pipeline.Workspace)/server-$(Build.BuildId)/*.zip"
                     RuntimeStack: "NODE|12-lts"
                     StartupCommand: "npm start"
-                    AppSettings: -PORT "8080"
