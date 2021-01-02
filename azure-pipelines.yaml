@@ -77,28 +77,23 @@ stages:
                       [
                         {
                           "name": "DB_USER",
-                          "value": "$(DB-USER)",
-                          "slotSetting": false
+                          "value": "$(DB-USER)"
                         },
                         {
                           "name": "DB_PASSWORD",
-                          "value": "$(DB-PASSWORD)", 
-                          "slotSetting": false
+                          "value": "$(DB-PASSWORD)"
                         },
                         {
                           "name": "DB_SERVER",
-                          "value": "$(DB-SERVER)", 
-                          "slotSetting": false
+                          "value": "$(DB-SERVER)"
                         },
                         {
                           "name": "DB_NAME",
-                          "value": "$(DB-NAME)", 
-                          "slotSetting": false
+                          "value": "$(DB-NAME)"
                         },
                         {
                           "name": "PORT",
-                          "value": "8080",
-                          "slotSettings": false
+                          "value": "8080"
                         }
                       ]
                 - task: AzureRmWebAppDeployment@4
